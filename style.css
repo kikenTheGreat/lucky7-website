@@ -1,0 +1,750 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fredoka', 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(180deg, #E8B4F0 0%, #C9A3E8 50%, #B89FE8 100%);
+    min-height: 100vh;
+    color: #333;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(90deg, #E8B4F0 0%, #D4A8E8 100%);
+    padding: 15px 0;
+    position: relative;
+    z-index: 10;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* === SOCIAL ICONS === */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* spacing between icons */
+    margin-top: 15px;
+}
+
+/* Circle buttons */
+.social-icons .social {
+    background-color: #7A33A0; /* rich purple background */
+    color: white; /* icon color */
+    font-size: 18px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.social-icons .social:hover {
+    background-color: #9c4bcc; /* lighter purple on hover */
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(122, 51, 160, 0.4);
+}
+ 
+
+.social-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9B6B9B;
+    text-decoration: none;
+    transition: transform 0.3s, background 0.3s;
+    font-size: 14px;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+    background: white;
+}
+
+/* Logo Section */
+.logo-section {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    top: -10px;
+}
+
+.logo-container {
+    background: linear-gradient(135deg, #87CEEB 0%, #B8E0F6 100%);
+    border-radius: 30px;
+    padding: 15px 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.lucky-text {
+    font-size: 36px;
+    font-weight: 700;
+    color: #87CEEB;
+    text-shadow: 
+        2px 2px 0px #5BA3C9,
+        4px 4px 0px rgba(0, 0, 0, 0.1);
+    font-family: 'Fredoka', cursive;
+    letter-spacing: 2px;
+    line-height: 0.9;
+}
+
+.lucky-number {
+    font-size: 72px;
+    font-weight: 700;
+    background: linear-gradient(180deg, #FF69B4 0%, #FF1493 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 3px 3px 0px rgba(255, 105, 180, 0.3);
+    font-family: 'Fredoka', cursive;
+    margin-top: -15px;
+    line-height: 0.8;
+}
+
+/* Navigation */
+nav {
+    margin-left: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 0;
+    margin: 0;
+}
+
+nav ul li a {
+    padding: 8px 18px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    display: block;
+    transition: background 0.3s;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+    background: #B3E5FF;
+    color: #333;
+}
+
+nav ul li:nth-child(1) a { background: #9B6B9B; }
+nav ul li:nth-child(2) a { background: #B3E5FF; color: #333; }
+nav ul li:nth-child(3) a { background: #9B6B9B; }
+nav ul li:nth-child(4) a { background: #9B6B9B; }
+
+/* Main Content Layout */
+main {
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.about-section {
+    position: relative;
+    z-index: 2;
+    padding-top: 40px;
+}
+
+
+ 
+
+.content-center {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 6; /* slightly above characters */
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #6B4C9B 0%, #9B6B9B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    margin-bottom: 25px;
+    font-family: 'Fredoka', cursive;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* About Text */
+.about-text {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #5B4C7B;
+    text-align: justify;
+    margin-bottom: 30px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    font-weight: 400;
+}
+
+/* Table Styles */
+.table-container {
+    overflow-x: auto;
+    margin: 20px 0;
+    border-radius: 15px;
+}
+
+.stream-schedule {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.stream-schedule thead {
+    background: linear-gradient(135deg, #D896D8 0%, #C089C7 100%);
+    color: white;
+}
+
+.stream-schedule th,
+.stream-schedule td {
+    padding: 12px;
+    text-align: left;
+    border: 2px solid rgba(200, 180, 220, 0.3);
+}
+
+.stream-schedule th {
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.stream-schedule td {
+    font-size: 13px;
+    color: #5B4C7B;
+    font-weight: 500;
+}
+
+.stream-schedule tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.stream-schedule tbody tr:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+/* === Match Promotional Outline Style to About Text === */
+.promotional-content {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #5B4C7B;
+    text-align: justify;
+    margin-bottom: 30px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.5); /* same transparency as about-text */
+    border-radius: 15px;
+    font-weight: 400;
+}
+
+
+/* Text styling for better readability */
+.promotional-content p,
+.promotional-content li {
+  color: #4b3b6e;
+  font-weight: 500;
+}
+
+.promotional-content strong {
+  color: #6B4C9B;
+  font-weight: 700;
+}
+
+.promotional-content ul,
+.promotional-content ol {
+    margin-left: 30px;
+    margin-bottom: 15px;
+}
+
+.promotional-content li {
+    margin-bottom: 8px;
+    color: #5B4C7B;
+}
+
+ 
+
+ 
+
+.promo-card:hover {
+    transform: translateY(-8px);
+}
+
+
+ 
+
+/* Footer Info */
+.footer-info {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 3px solid rgba(199, 137, 199, 0.5);
+}
+
+.footer-info p {
+    font-weight: 700;
+    color: #6B4C9B;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+/* ---------- Background Characters Behind Text ---------- */
+.background-characters {
+    position: relative;
+    z-index: 2;
+    overflow: visible;
+}
+
+.background-characters::before,
+.background-characters::after {
+    content: "";
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 1;
+    filter: drop-shadow(0 0 8px rgba(0,0,0,0.1));
+    animation: floatUpDown 6s ease-in-out infinite;
+}
+
+/* Floating Animation */
+@keyframes floatUpDown {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Make all inner content stay above background characters */
+.background-characters > * {
+    position: relative;
+    z-index: 5;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 968px) {
+    .about-section {
+        position: relative;
+        display: block;
+        grid-template-columns: 1fr;
+    }
+
+     .character-left,
+    .character-right {
+        display: block;
+        position: absolute;
+        opacity: 10;          /* ✅ full visibility */
+        z-index: 1;          /* sits behind text */
+        width: 140px;
+        height: auto;
+    }
+
+    /* Place both characters side-by-side near top behind text */
+   .character-left {
+    left: -100px; /* push both farther */
+}
+
+
+
+    .character-right {
+        left: 45%; /* roughly beside left one */
+        top: 40px;
+    }
+
+    /* remove glass background from content-center */
+      .content-center {
+        background: none;
+        box-shadow: none;
+        backdrop-filter: none;
+        padding: 0;
+        position: relative;
+        z-index: 5;          /* ✅ keeps text above images */
+    }
+
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo-section {
+        position: relative;
+        left: 0;
+        transform: none;
+        margin: 15px 0;
+    }
+
+    nav {
+        margin: 10px auto 0;
+    }
+
+    nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .lucky-text {
+        font-size: 32px;
+    }
+
+    .lucky-number {
+        font-size: 60px;
+    }
+
+    .background-characters::before,
+    .background-characters::after {
+        opacity: 0.2;
+    }
+
+    .background-characters::before {
+        left: -90px;
+        width: 320px;
+        height: 560px;
+        top: 40px;
+    }
+
+    .background-characters::after {
+        right: -50px;
+        width: 240px;
+        height: 360px;
+        bottom: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .section-title {
+        font-size: 24px;
+    }
+
+    .stream-schedule {
+        font-size: 11px;
+    }
+
+    .stream-schedule th,
+    .stream-schedule td {
+        padding: 8px;
+    }
+
+    nav ul li a {
+        padding: 8px 12px;
+        font-size: 11px;
+    }
+
+    .content-center {
+        padding: 20px;
+    }
+
+    .logo-container {
+        padding: 12px 30px;
+    }
+
+    .lucky-text {
+        font-size: 28px;
+    }
+
+    .lucky-number {
+        font-size: 50px;
+    }
+
+    /* hide background characters on very small screens */
+    .background-characters::before,
+    .background-characters::after {
+        display: none;
+    }
+}
+
+/* Make the yellow cup character smaller */
+.character-left img {
+    width: 200px;    /* adjust this number: 100–140 works well */
+    height: auto;
+}
+
+  
+ 
+ /* === FLOATING CHARACTERS (Positioned Beside the Section) === */
+.character-left,
+.character1,
+.character-right,
+.character3 {
+    position: absolute;
+    z-index: 2;
+    animation: floatUpDown 6s ease-in-out infinite;
+}
+
+/* Left-side pair */
+.character-left {/*push away yyyyyyyyyyyyyyyyyyyyyy*/
+    left: -100px; 
+    top: 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+ 
+
+ 
+
+/* Right-side pair */
+.character-right {
+    right: -400px;
+    top: 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+ 
+
+ 
+
+
+
+/* === NEW CHARACTER 3 (under Character 2) === */
+.character3 {
+    right: -400px;  /* same horizontal alignment */
+    top: 930px;     /* 👈 lower value = appears under character2 */
+}
+
+
+
+ 
+
+ .character-left img,
+.character-right img,
+.character3 img,
+.character1 img {
+    width: 220px;   /* choose any size you like */
+    height: auto;
+}/*size of the image character/
+
+
+/* Floating animation */
+@keyframes floatUpDown {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .character-left,
+    .character-right,
+    .character3 {
+        position: relative;
+        left: 0;
+        right: 0;
+        top: 0;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 20px;
+        gap: 15px;
+    }
+
+    .character-left img,
+    .character-right img,
+    .character3 img {
+        width: 100px;
+    }
+}
+
+.character-left img {
+    width: 150px;
+}
+
+ /* Make Character 1 (the yellow cup) bigger */
+.character-left img:nth-child(2) {
+    width: 240px;  /* 👈 increase for bigger size (try 240–260px) */
+    height: auto;
+    
+}
+
+/* === CHARACTER 1 (independent, like character3) === */
+.character1 {
+    position: absolute;
+    left: -50px;   /* 👈 push it beside the section */
+    top: 530px;     /* 👈 controls vertical position */
+    z-index: 2;
+    animation: floatUpDown 6s ease-in-out infinite;
+}
+
+.character1 img {
+    width: 240px;   /* 👈 size of Character 1 */
+    height: auto;
+}
+
+
+/*card designnnnnnnnnnnnnnnnnnnnnnnnnnn -------------------------------------------------*/
+ /* === PROMOTIONAL MATERIALS SECTION === */
+.promo-materials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+/* Each promo card container */
+.promo-card {
+    position: relative;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: linear-gradient(180deg, #d7b6f7, #f4ccf9);
+    max-width: 420px;
+    width: 100%;
+}
+
+/* Image style */
+.promo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 25px;
+    transition: transform 0.4s ease;
+}
+
+/* Hover effect */
+.promo-card:hover img {
+    transform: scale(1.05);
+}
+
+.promo-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(136, 90, 255, 0.3);
+}
+
+ 
+
+ /* === DESKTOP VIEW (default) === */
+.character-left {
+  left: -400px;
+  top: 160px;
+}
+
+.character1 {
+  left: -450px;
+  top: 530px;
+}
+
+.character-right {
+  right: -400px;
+  top: 160px;
+}
+
+.character2 {
+  right: -400px;
+  top: 580px;
+}
+
+.character3 {
+  right: -400px;
+  top: 930px;
+}
+
+/* === MOBILE VIEW: Promotional content matches About text === */
+@media (max-width: 768px) {
+
+  /* Match .about-text look */
+  .promotional-content {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #5B4C7B;
+    text-align: justify;
+    margin-bottom: 30px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.5); /* ✅ same transparency */
+    border-radius: 15px;
+    font-weight: 400;
+    backdrop-filter: none; /* remove blur to exactly match */
+    box-shadow: none;
+  }
+
+  /* Center and stack characters behind text */
+  .character-left,
+  .character1,
+  .character-right,
+  .character2,
+  .character3 {
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 1 !important;
+    opacity: 0.7;
+  }
+
+  /* Vertical stacking */
+  .character-left { top: 0; }
+  .character1 { top: 400px; }
+  .character-right { top: 670px; }
+  .character2 { top: 1000px; }
+  .character3 {
+    top: 1120px;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    z-index: 1 !important;
+    opacity: 0.8;
+  }
+
+  /* Character image size */
+  .character-left img,
+  .character1 img,
+  .character-right img,
+  .character2 img,
+  .character3 img {
+    width: 180px !important;
+    height: auto;
+  }
+
+  /* Keep text above characters */
+  .content-center {
+    position: relative;
+    z-index: 5;
+  }
+}
+
+
