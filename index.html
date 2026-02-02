@@ -74,7 +74,7 @@
 
 
         <!-- ABOUT SECTION -->
-        <section id="about" class="about-section fade-up">
+        <section id="about" class="about-section">
             <div class="content-center">
                 <h1 class="section-title">ABOUT US</h1>
                 <p class="about-text">
@@ -88,7 +88,7 @@
         </section>
 
         <!-- OUTLINE OF THE STREAM SECTION -->
-        <section class="stream-outline-section fade-up">
+        <section class="stream-outline-section">
             <div class="content-center">
                 <h2 class="section-title">OUTLINE OF THE STREAM</h2>
                 <div class="table-container">
@@ -154,7 +154,7 @@
         </section>
 
         <!-- PROMOTIONAL OUTLINE SECTION -->
-        <section id="promotional" class="about-section fade-up">
+        <section id="promotional" class="about-section">
             <div class="content-center">
                 <h2 class="section-title">PROMOTIONAL OUTLINE</h2>
                 <div class="promotional-content">
@@ -165,32 +165,34 @@
                         encourage teamwork, creativity, and connection through gaming.</p>
 
 
-                    <p><strong>Objectives :</strong></p>
-                    <ol>
+                    <p style="margin-bottom: 0px;"><strong>Objectives :</strong></p>
+                    <ul>
                         <li>To promote our gaming stream to a wider audience.</li>
                         <li>To encourage engagement and participation from viewers.</li>
                         <li>To increase followers and page interactions.</li>
-                    </ol>
+                    </ul>
 
                     <p><strong>Target audience</strong> – Our campaign targets students, young gamers, and social media
                         users who love and enjoy gaming content, humor, and live interaction.</p>
 
                     <p><strong>Key Message / Slogan :</strong> Play. Laugh. Level Up – Together!</p>
 
-                    <p><strong>Strategies and Activities</strong></p>
-                    <ol>
+                    <p style="margin-bottom: 0px;"><strong>Strategies and Activities</strong></p>
+                    <ul>
                         <li> Share countdown posts before the stream</li>
                         <li> Design digital posters</li>
                         <li> Collaborate with classmates or friends to share the stream link</li>
-                    </ol>
+                    </ul>
 
-                    <p><strong>Timeline / Schedule</strong></p>
-                    <p>Week 1 : Create promotional materials like posters.<br>
-                        Week 2 : Launch social media pages and start posting.<br>
-                        Week 3 : Go live and engage with viewers.<br>
-                        Week 4 : Collect and give feedback and analyze engagement.</p>
+                    <p style="margin-bottom: 0px;"><strong>Timeline / Schedule</strong></p>
+                    <ul>
+                        <li>Week 1: Create promotional materials like posters.</li>
+                        <li>Week 2: Launch social media pages and start posting.</li>
+                        <li>Week 3: Go live and engage with viewers.</li>
+                        <li>Week 4: Collect and give feedback and analyze engagement.</li>
+                    </ul>
 
-                    <p><strong>Materials / Budget</strong></p>
+                    <p style="margin-bottom: 0px;"><strong>Materials / Budget</strong></p>
                     <ul>
                         <li>Canva (for posters and graphics) – Free</li>
                         <li>Smartphone for streaming – Available</li>
@@ -215,7 +217,7 @@
 
 
                 <!-- STREAM VIDEO SECTION (placed before footer) -->
-                <section id="video" class="video-section fade-up">
+                <section id="video" class="video-section">
                     <h2 class="section-title">STREAM VIDEO</h2>
                     <div class="video-container">
                         <video controls preload="metadata" width="100%">
@@ -226,7 +228,7 @@
                 </section>
 
                 <!-- STREAM ANALYSIS SECTION -->
-                <section id="analysis" class="analysis-section fade-up">
+                <section id="analysis" class="analysis-section">
                     <div class="content-center">
                         <h2 class="section-title">STREAM ANALYSIS: LUCKY 7</h2>
                         <div class="analysis-content">
@@ -313,7 +315,7 @@
                 </section>
 
                 <!-- APPENDIX SECTION -->
-                <section class="appendix-section fade-up">
+                <section class="appendix-section">
                     <h2 class="section-title">APPENDIX</h2>
 
                     <h3 class="appendix-subtitle">Appendix A: Description of the Horror Game Livestream</h3>
@@ -477,22 +479,7 @@
     </button>
 
     <script>
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px 200px 0px'
-        };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all elements with fade-up class
-        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
         // Back to Top Button
         const backToTopBtn = document.getElementById('backToTopBtn');

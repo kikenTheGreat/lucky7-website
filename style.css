@@ -10,18 +10,6 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Scroll Animation - Fade Up */
-.fade-up {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s ease-out;
-}
-
-.fade-up.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 body {
      
     font-family: 'Fredoka', 'Comic Sans MS', cursive, sans-serif;
@@ -77,13 +65,11 @@ header .container {
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    transition: all 0.3s ease;
 }
 
 /* Hover effect */
 .social-icons .social:hover {
     background-color: #9c4bcc; /* lighter purple on hover */
-    transform: scale(1.1);
     box-shadow: 0 4px 10px rgba(122, 51, 160, 0.4);
 }
  
@@ -98,12 +84,10 @@ header .container {
     justify-content: center;
     color: #9B6B9B;
     text-decoration: none;
-    transition: transform 0.3s, background 0.3s;
     font-size: 14px;
 }
 
 .social-icon:hover {
-    transform: scale(1.1);
     background: white;
 }
 
@@ -167,10 +151,10 @@ nav ul li a {
     color: white;
     font-weight: 600;
     display: block;
-    transition: background 0.3s;
     font-size: 13px;
     letter-spacing: 0.5px;
     text-transform: uppercase;
+    transition: all 0.3s ease;
 }
 
 nav ul li a.active,
@@ -311,23 +295,21 @@ main {
 
 .stream-schedule tbody tr:nth-child(even) {
     background: rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
 }
 
 .stream-schedule tbody tr:hover {
     background: rgba(255, 255, 255, 0.8);
-    transform: scale(1.01);
     box-shadow: 0 4px 15px rgba(107, 76, 155, 0.15);
 }
 
 /* === Match Promotional Outline Style to About Text === */
 .promotional-content {
     font-size: 15px;
-    line-height: 1.8;
+    line-height: 1.9;
     color: #5B4C7B;
     text-align: justify;
     margin-bottom: 30px;
-    padding: 25px;
+    padding: 30px 40px;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 15px;
     font-weight: 400;
@@ -346,6 +328,10 @@ main {
   font-weight: 500;
 }
 
+.promotional-content p {
+    margin-bottom: 15px;
+}
+
 .promotional-content strong {
   color: #6B4C9B;
   font-weight: 700;
@@ -353,13 +339,17 @@ main {
 
 .promotional-content ul,
 .promotional-content ol {
-    margin-left: 30px;
-    margin-bottom: 15px;
+    padding-left: 0;
+    margin-left: 40px;
+    margin-bottom: 18px;
 }
 
 .promotional-content li {
-    margin-bottom: 8px;
+    margin-left: 1.5em;
+    margin-bottom: 10px;
+    padding-left: 5px;
     color: #5B4C7B;
+    line-height: 1.8;
 }
 
  
@@ -405,14 +395,6 @@ main {
     pointer-events: none;
     z-index: 1;
     filter: drop-shadow(0 0 8px rgba(0,0,0,0.1));
-    animation: floatUpDown 6s ease-in-out infinite;
-}
-
-/* Floating Animation */
-@keyframes floatUpDown {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0px); }
 }
 
 /* Make all inner content stay above background characters */
@@ -695,7 +677,6 @@ main {
     border-radius: 25px;
     overflow: hidden;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     background: linear-gradient(180deg, #d7b6f7, #f4ccf9);
     max-width: 420px;
     width: 100%;
@@ -708,16 +689,13 @@ main {
     object-fit: cover;
     display: block;
     border-radius: 20px;
-    transition: transform 0.4s ease;
 }
 
 /* Hover effect */
 .promo-card:hover img {
-    transform: scale(1.05);
 }
 
 .promo-card:hover {
-    transform: translateY(-15px) scale(1.02);
     box-shadow: 0 15px 35px rgba(136, 90, 255, 0.4);
 }
 
@@ -857,12 +835,10 @@ main {
 
 .appendix-table tbody tr:nth-child(even) {
     background: rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
 }
 
 .appendix-table tbody tr:hover {
     background: rgba(255, 255, 255, 0.8);
-    transform: scale(1.01);
     box-shadow: 0 4px 15px rgba(107, 76, 155, 0.15);
 }
 
@@ -901,7 +877,6 @@ main {
 }
 
 .chart-bar {
-    transition: fill 0.3s ease;
 }
 
 .chart-bar:hover {
@@ -909,7 +884,6 @@ main {
 }
 
 .bar-top {
-    transition: fill 0.3s ease;
 }
 
 .bar-top:hover {
@@ -917,7 +891,6 @@ main {
 }
 
 .bar-side {
-    transition: fill 0.3s ease;
 }
 
 .bar-side:hover {
@@ -1027,11 +1000,9 @@ main {
     margin: 20px auto;
     border-radius: 16px;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .video-section .video-container:hover {
-    transform: scale(1.02);
     box-shadow: 0 8px 25px rgba(107, 76, 155, 0.3);
 }
 
@@ -1051,12 +1022,28 @@ main {
     line-height: 1.8;
     color: #5B4C7B;
     text-align: justify;
-    margin-bottom: 30px;
-    padding: 25px;
+    margin-bottom: 10px;
+    padding: 20px;
     border-radius: 15px;
     font-weight: 400;
     backdrop-filter: none; /* remove blur to exactly match */
     box-shadow: none;
+  }
+
+  .promotional-content p {
+    margin-bottom: 12px;
+  }
+
+  .promotional-content ul,
+  .promotional-content ol {
+    margin-left: 20px;
+    margin-bottom: 15px;
+    padding-left: 10px;
+  }
+
+  .promotional-content li {
+    margin-bottom: 0px;
+    padding-left: 5px;
   }
 
   /* Center and stack characters behind text */
@@ -1120,9 +1107,9 @@ main {
     justify-content: center;
     font-size: 20px;
     box-shadow: 0 4px 12px rgba(79, 195, 247, 0.4);
-    transition: all 0.3s ease;
     z-index: 1000;
     opacity: 0;
+    transition: all 0.3s ease;
     transform: scale(0.8);
 }
 
@@ -1153,6 +1140,27 @@ main {
         font-size: 13px;
         padding: 15px;
         line-height: 1.6;
+    }
+
+    .promotional-content p {
+        margin-bottom: 10px;
+    }
+
+    .promotional-content ul,
+    .promotional-content ol {
+        margin-left: 15px;
+        margin-bottom: 12px;
+        padding-left: 8px;
+    }
+
+    .promotional-content li {
+        margin-bottom: 8px;
+        padding-left: 3px;
+    }
+
+    .promotional-content strong {
+        display: block;
+        margin-top: 10px;
     }
 
     .stream-schedule {
@@ -1236,6 +1244,22 @@ main {
     .about-text, .promotional-content {
         font-size: 14px;
         padding: 20px;
+    }
+
+    .promotional-content p {
+        margin-bottom: 12px;
+    }
+
+    .promotional-content ul,
+    .promotional-content ol {
+        margin-left: 18px;
+        margin-bottom: 14px;
+        padding-left: 10px;
+    }
+
+    .promotional-content li {
+        margin-bottom: 9px;
+        padding-left: 4px;
     }
 
     .stream-schedule {
