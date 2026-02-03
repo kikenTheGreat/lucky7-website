@@ -8,6 +8,7 @@
 /* Smooth Scroll */
 html {
     scroll-behavior: smooth;
+    width: 100%;
 }
 
 body {
@@ -18,6 +19,7 @@ body {
     color: #333;
     position: relative;
     overflow-x: hidden;
+    width: 100%;
 }
 
 .container {
@@ -173,6 +175,8 @@ main {
     padding: 40px 20px;
     position: relative;
     z-index: 1;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .about-section {
@@ -185,6 +189,8 @@ main {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     padding: 40px;
     margin: 40px 0;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .about-section:hover {
@@ -202,6 +208,8 @@ main {
     backdrop-filter: blur(12px);
     border-radius: 20px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .stream-outline-section:hover {
@@ -259,6 +267,8 @@ main {
     overflow-x: auto;
     margin: 20px 0;
     border-radius: 15px;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .stream-schedule {
@@ -749,6 +759,8 @@ main {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     display: block !important;
     visibility: visible !important;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .appendix-section:hover {
@@ -927,6 +939,8 @@ main {
     backdrop-filter: blur(12px);
     border-radius: 20px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .analysis-section:hover {
@@ -1014,7 +1028,7 @@ main {
 }
 
 /* === MOBILE VIEW: Promotional content matches About text === */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 
   /* Match .about-text look */
   .promotional-content {
@@ -1129,8 +1143,46 @@ main {
    RESPONSIVE MEDIA QUERIES - COMPLETE
    ============================================ */
 
-/* Extra Small Devices - Small Phones (320px - 480px) */
-@media (max-width: 480px) {
+/* Extra Small Devices - Small Phones Portrait (320px - 480px) */
+@media (max-width: 480px) and (orientation: portrait) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    header .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .social-icons {
+        order: 1;
+        margin-top: 10px;
+    }
+
+    .logo-section {
+        order: 2;
+        position: relative;
+        left: 0;
+        transform: none;
+        margin: 10px 0;
+    }
+
+    nav {
+        order: 3;
+        width: 100%;
+        margin: 10px 0 0;
+    }
+
+    nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
     .section-title {
         font-size: 20px;
         margin-bottom: 15px;
@@ -1144,18 +1196,18 @@ main {
 
     .video-section .video-container {
         margin: 10px auto;
-        max-height: 250px;
+        max-height: 300px;
     }
 
     .video-section .video-container video {
-        max-height: 250px;
+        max-height: 300px;
         object-fit: contain;
     }
 
     .about-text, .promotional-content {
         font-size: 13px;
-        padding: 15px;
-        line-height: 1.6;
+        padding: 18px;
+        line-height: 1.7;
     }
 
     .promotional-content p {
@@ -1177,6 +1229,20 @@ main {
     .promotional-content strong {
         display: block;
         margin-top: 10px;
+    }
+
+    .back-to-top {
+        left: auto;
+        right: 20px;
+        transform: scale(0.8);
+    }
+
+    .back-to-top.show {
+        transform: scale(1);
+    }
+
+    .back-to-top:hover {
+        transform: scale(1.1);
     }
 
     .stream-schedule {
@@ -1249,10 +1315,149 @@ main {
         height: 30px;
         font-size: 14px;
     }
+
+    header .container {
+        flex-direction: column;
+    }
+
+    .logo-section {
+        position: relative;
+        left: 0;
+        transform: none;
+    }
+
+    main {
+        padding: 30px 15px;
+    }
 }
 
-/* Small Devices - Standard Phones (481px - 768px) */
-@media (min-width: 481px) and (max-width: 768px) {
+/* Extra Small Devices - Small Phones Landscape */
+@media (max-width: 767px) and (max-height: 480px) and (orientation: landscape) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    header {
+        padding: 8px 0;
+    }
+
+    header .container {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 8px;
+        align-items: center;
+    }
+
+    .social-icons {
+        order: 1;
+        margin-top: 0;
+        gap: 4px;
+    }
+
+    .social-icons .social {
+        width: 26px;
+        height: 26px;
+        font-size: 12px;
+    }
+
+    .logo-section {
+        order: 2;
+        position: relative;
+        left: 0;
+        transform: none;
+        margin: 0;
+    }
+
+    .logo-container {
+        padding: 6px 15px;
+    }
+
+    .lucky-text {
+        font-size: 18px;
+    }
+
+    .lucky-number {
+        font-size: 34px;
+    }
+
+    nav {
+        order: 3;
+        margin: 0 0 0 auto;
+    }
+
+    nav ul {
+        gap: 1px;
+    }
+
+    nav ul li a {
+        padding: 5px 8px;
+        font-size: 9px;
+    }
+
+    main {
+        padding: 15px 10px;
+    }
+
+    .section-title {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    .about-text,
+    .promotional-content {
+        font-size: 12px;
+        padding: 12px 15px;
+        line-height: 1.5;
+    }
+
+    .about-section,
+    .stream-outline-section,
+    .analysis-section,
+    .appendix-section {
+        padding: 15px 12px;
+        margin: 15px 0;
+    }
+
+    .content-center {
+        padding: 12px;
+    }
+
+    .character-left,
+    .character1,
+    .character-right,
+    .character3 {
+        display: none;
+    }
+
+    .back-to-top {
+        width: 38px;
+        height: 38px;
+        bottom: 12px;
+        right: 12px;
+        font-size: 14px;
+    }
+
+    .video-section {
+        padding: 15px 0;
+        margin: 15px 0;
+    }
+
+    .video-section .video-container {
+        max-height: 200px;
+        margin: 8px auto;
+    }
+
+    .video-section .video-container video {
+        max-height: 200px;
+    }
+}
+
+/* Small Devices - Standard Phones Portrait (481px - 767px) */
+@media (min-width: 481px) and (max-width: 767px) and (orientation: portrait) {
     .section-title {
         font-size: 26px;
     }
@@ -1294,6 +1499,20 @@ main {
         padding-left: 4px;
     }
 
+    .back-to-top {
+        right: 30px;
+        bottom: 30px;
+        transform: scale(0.8);
+    }
+
+    .back-to-top.show {
+        transform: scale(1);
+    }
+
+    .back-to-top:hover {
+        transform: scale(1.1);
+    }
+
     .stream-schedule {
         font-size: 12px;
     }
@@ -1333,8 +1552,8 @@ main {
     .back-to-top {
         width: 48px;
         height: 48px;
-        bottom: 25px;
-        right: 25px;
+        bottom: 30px;
+        right: 30px;
     }
 
     .character-left img,
@@ -1358,75 +1577,640 @@ main {
     nav {
         margin: 10px auto 0;
     }
+
+    main {
+        padding: 30px 20px;
+    }
 }
 
-/* Medium Devices - Tablets/iPads (769px - 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
+/* Small Devices - Standard Phones Landscape (481px - 767px) */
+@media (min-width: 481px) and (max-width: 767px) and (orientation: landscape) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+
+    header {
+        padding: 10px 0;
+    }
+
+    header .container {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 12px;
+    }
+
+    .social-icons {
+        order: 1;
+        margin-top: 0;
+        gap: 6px;
+    }
+
+    .social-icons .social {
+        width: 28px;
+        height: 28px;
+        font-size: 13px;
+    }
+
+    .logo-section {
+        order: 2;
+        position: relative;
+        left: 0;
+        transform: none;
+        margin: 0;
+    }
+
+    .logo-container {
+        padding: 8px 18px;
+    }
+
+    .lucky-text {
+        font-size: 22px;
+    }
+
+    .lucky-number {
+        font-size: 42px;
+    }
+
+    nav {
+        order: 3;
+        margin: 0 0 0 auto;
+    }
+
+    nav ul {
+        gap: 2px;
+    }
+
+    nav ul li a {
+        padding: 6px 10px;
+        font-size: 10px;
+    }
+
+    main {
+        padding: 20px 15px;
+    }
+
+    .section-title {
+        font-size: 22px;
+    }
+
+    .about-text,
+    .promotional-content {
+        font-size: 13px;
+        padding: 16px 18px;
+        line-height: 1.6;
+    }
+
+    .about-section,
+    .stream-outline-section,
+    .analysis-section,
+    .appendix-section {
+        padding: 20px 15px;
+        margin: 20px 0;
+    }
+
+    .content-center {
+        padding: 18px;
+    }
+
+    .stream-schedule {
+        font-size: 11px;
+    }
+
+    .character-left,
+    .character1,
+    .character-right,
+    .character3 {
+        display: none;
+    }
+
+    .back-to-top {
+        width: 42px;
+        height: 42px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .video-section .video-container {
+        max-height: 280px;
+    }
+
+    .video-section .video-container video {
+        max-height: 280px;
+    }
+}
+
+/* Mobile Devices - Landscape (max height 480px in landscape) */
+@media (max-height: 480px) and (orientation: landscape) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+
+    header {
+        padding: 10px 0;
+    }
+
+    header .container {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .social-icons {
+        order: 1;
+        margin-top: 0;
+        gap: 5px;
+        flex-shrink: 0;
+        position: absolute;
+        left: 0;
+    }
+
+    .social-icons .social {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+
+    .logo-section {
+        order: 2;
+        position: relative;
+        left: 0;
+        transform: none;
+        margin: 0 auto;
+        flex-shrink: 0;
+    }
+
+    .logo-container {
+        padding: 8px 20px;
+    }
+
+    .lucky-text {
+        font-size: 20px;
+    }
+
+    .lucky-number {
+        font-size: 38px;
+    }
+
+    nav {
+        order: 3;
+        margin: 0;
+        flex-shrink: 0;
+        position: absolute;
+        right: 0;
+    }
+
+    nav ul {
+        gap: 2px;
+    }
+
+    nav ul li a {
+        padding: 6px 10px;
+        font-size: 10px;
+    }
+
+    main {
+        padding: 20px 10px;
+    }
+
+    .section-title {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .about-text,
+    .promotional-content {
+        font-size: 13px;
+        padding: 15px 20px;
+        line-height: 1.6;
+    }
+
+    .about-section,
+    .stream-outline-section,
+    .analysis-section,
+    .appendix-section {
+        padding: 20px 15px;
+        margin: 20px 0;
+    }
+
+    .content-center {
+        padding: 15px;
+    }
+
+    .stream-schedule {
+        font-size: 11px;
+    }
+
+    .stream-schedule th,
+    .stream-schedule td {
+        padding: 8px;
+    }
+
+    .promo-materials {
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .character-left,
+    .character1,
+    .character-right,
+    .character3 {
+        display: none;
+    }
+
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        bottom: 15px;
+        right: 15px;
+        font-size: 16px;
+    }
+
+    .video-section {
+        padding: 20px 0;
+        margin: 20px 0;
+    }
+
+    .video-section .video-container {
+        max-height: 250px;
+        margin: 10px auto;
+    }
+
+    .video-section .video-container video {
+        max-height: 250px;
+    }
+}
+
+/* iPads - Portrait (768px - 1024px in portrait) */
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    html {
+        overflow-x: hidden;
+    }
+
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
     .container {
         max-width: 100%;
+        width: 100%;
+        margin: 0 auto;
         padding: 0 30px;
+        box-sizing: border-box;
+    }
+
+    header {
+        padding: 20px 0;
+        width: 100%;
+    }
+
+    header .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .social-icons {
+        order: 1;
+        margin-top: 10px;
+        gap: 8px;
+        flex-shrink: 0;
+    }
+
+    .social-icons .social {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+    }
+
+    .logo-section {
+        order: 2;
+        position: relative;
+        left: 0;
+        transform: none;
+        margin: 10px 0;
+        flex-shrink: 0;
+    }
+
+    .logo-container {
+        padding: 12px 30px;
+    }
+
+    .lucky-text {
+        font-size: 28px;
+    }
+
+    .lucky-number {
+        font-size: 55px;
+    }
+
+    nav {
+        order: 3;
+        margin: 10px 0 0 0;
+        width: 100%;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 3px;
+    }
+
+    nav ul li a {
+        padding: 8px 12px;
+        font-size: 11px;
+        letter-spacing: 0.3px;
+    }
+
+    main {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        padding: 30px 0;
+        box-sizing: border-box;
     }
 
     .section-title {
         font-size: 28px;
     }
 
-    .about-text, .promotional-content {
+    .about-text,
+    .promotional-content {
         font-size: 14px;
-        padding: 22px;
+        padding: 25px 30px;
+        line-height: 1.8;
+    }
+
+    .about-section,
+    .stream-outline-section,
+    .analysis-section,
+    .appendix-section {
+        padding: 35px 30px;
+        margin: 30px 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .content-center {
+        padding: 30px;
     }
 
     .stream-schedule {
         font-size: 13px;
     }
 
-    nav ul li a {
-        padding: 8px 15px;
-        font-size: 13px;
-    }
-
-    .lucky-text {
-        font-size: 32px;
-    }
-
-    .lucky-number {
-        font-size: 60px;
-    }
-
-    .character-left {
-        left: -120px !important;
-    }
-
-    .character1 {
-        left: -120px !important;
-        top: 630px !important;
-    }
-
-    .character-right {
-        right: -120px !important;
-    }
-
+    .character-left,
+    .character1,
+    .character-right,
     .character3 {
-        right: -120px !important;
-    }
-
-    .character-left img,
-    .character1 img,
-    .character-right img,
-    .character3 img {
-        width: 180px !important;
+        display: none !important;
     }
 
     .promo-materials {
         gap: 35px;
+        padding: 30px;
+    }
+
+    .back-to-top {
+        right: 40px;
+        bottom: 30px;
+    }
+}
+
+/* iPads - Landscape (768px - 1024px in landscape) */
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    html {
+        overflow-x: hidden;
+    }
+
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    .container {
+        max-width: 100%;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 30px;
+        box-sizing: border-box;
+    }
+
+    header {
+        padding: 15px 0;
+        width: 100%;
+    }
+
+    header .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 15px;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+    }
+
+    .social-icons {
+        order: 1;
+        margin-top: 0;
+        gap: 6px;
+        flex-shrink: 0;
+        position: absolute;
+        left: 0;
+    }
+
+    .social-icons .social {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .logo-section {
+        order: 2;
+        position: relative;
+        left: 0;
+        transform: none;
+        margin: 0 auto;
+        flex-shrink: 0;
+    }
+
+    .logo-container {
+        padding: 10px 25px;
+    }
+
+    .lucky-text {
+        font-size: 24px;
+    }
+
+    .lucky-number {
+        font-size: 48px;
+    }
+
+    nav {
+        order: 3;
+        margin: 0;
+        flex-shrink: 0;
+        position: absolute;
+        right: 0;
+    }
+
+    nav ul {
+        display: flex;
+        gap: 2px;
+    }
+
+    nav ul li a {
+        padding: 7px 11px;
+        font-size: 10px;
+        letter-spacing: 0.2px;
+    }
+
+    main {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        padding: 25px 15px;
+        box-sizing: border-box;
+    }
+
+    .section-title {
+        font-size: 26px;
+    }
+
+    .about-text,
+    .promotional-content {
+        font-size: 14px;
+        padding: 20px 25px;
+        line-height: 1.7;
+    }
+
+    .about-section,
+    .stream-outline-section,
+    .analysis-section,
+    .appendix-section {
+        padding: 28px 25px;
+        margin: 25px 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .content-center {
+        padding: 25px;
+    }
+
+    .stream-schedule {
+        font-size: 12px;
+    }
+
+    .character-left,
+    .character1,
+    .character-right,
+    .character3 {
+        display: none !important;
+    }
+
+    .promo-materials {
+        gap: 30px;
+        padding: 25px;
+    }
+
+    .back-to-top {
+        right: 35px;
+        bottom: 25px;
+    }
+
+    .video-section .video-container {
+        max-height: 400px;
+    }
+
+    .video-section .video-container video {
+        max-height: 400px;
     }
 }
 
 /* Large Devices - Laptops (1025px - 1440px) */
 @media (min-width: 1025px) and (max-width: 1440px) {
+    header {
+        padding: 12px 0;
+    }
+
+    header .container {
+        flex-wrap: nowrap;
+        gap: 12px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .social-icons {
+        gap: 5px;
+        margin-top: 0;
+        flex-shrink: 0;
+    }
+
+    .social-icons .social {
+        width: 28px;
+        height: 28px;
+        font-size: 13px;
+    }
+
+    .logo-section {
+        flex-shrink: 0;
+    }
+
+    .logo-container {
+        padding: 8px 20px;
+    }
+
+    .lucky-text {
+        font-size: 24px;
+    }
+
+    .lucky-number {
+        font-size: 46px;
+    }
+
+    nav {
+        margin-left: auto;
+        flex-shrink: 0;
+    }
+
+    nav ul {
+        gap: 2px;
+    }
+
+    nav ul li a {
+        padding: 7px 11px;
+        font-size: 11px;
+        letter-spacing: 0.3px;
+    }
+
     .container {
         max-width: 1100px;
-        padding: 0 120px;
+        margin: 0 auto;
+        padding: 0 40px;
+        box-sizing: border-box;
+    }
+
+    main {
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
     .section-title {
@@ -1437,28 +2221,25 @@ main {
         font-size: 15px;
     }
 
-    .character-left {
-        left: -80px !important;
-    }
-
-    .character1 {
-        left: -80px !important;
-        top: 630px !important;
-    }
-
-    .character-right {
-        right: -80px !important;
-    }
-
+    .character-left,
+    .character1,
+    .character-right,
     .character3 {
-        right: -80px !important;
+        display: none !important;
     }
 
-    .character-left img,
-    .character1 img,
-    .character-right img,
-    .character3 img {
-        width: 200px !important;
+    .back-to-top {
+        right: 70px;
+        bottom: 30px;
+        transform: scale(0.8);
+    }
+
+    .back-to-top.show {
+        transform: scale(1);
+    }
+
+    .back-to-top:hover {
+        transform: scale(1.1);
     }
 }
 
@@ -1467,6 +2248,10 @@ main {
     .container {
         max-width: 1400px;
         padding: 0 150px;
+    }
+
+    .back-to-top {
+        right: 180px;
     }
 
     .section-title {
@@ -1512,31 +2297,6 @@ main {
     }
 }
 
-/* Landscape Orientation for Tablets */
-@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
-    .about-section, .stream-outline-section, .analysis-section, .appendix-section {
-        padding: 35px 20px;
-    }
-
-    .section-title {
-        font-size: 26px;
-    }
-
-    .character-left,
-    .character1 {
-        left: -100px !important;
-    }
-
-    .character1 {
-        top: 630px !important;
-    }
-
-    .character-right,
-    .character3 {
-        right: -100px !important;
-    }
-}
-
 /* Print Styles */
 @media print {
     .back-to-top,
@@ -1557,5 +2317,126 @@ main {
         background: white;
     }
 }
+
+/* Portrait Mode Specific Fixes - All iPads */
+@media (orientation: portrait) and (min-width: 768px) and (max-width: 1024px) {
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    header {
+        padding: 20px 0;
+    }
+
+    header .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .social-icons {
+        order: 1;
+        margin-top: 10px;
+        gap: 8px;
+        flex-shrink: 0;
+    }
+
+    .social-icons .social {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+    }
+
+    .logo-section {
+        order: 2;
+        position: relative;
+        left: 0;
+        transform: none;
+        margin: 10px 0;
+        flex-shrink: 0;
+    }
+
+    .logo-container {
+        padding: 12px 30px;
+    }
+
+    .lucky-text {
+        font-size: 28px;
+    }
+
+    .lucky-number {
+        font-size: 55px;
+    }
+
+    nav {
+        order: 3;
+        margin: 10px 0 0 0;
+        width: 100%;
+    }
+
+    nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 3px;
+    }
+
+    nav ul li a {
+        padding: 8px 12px;
+        font-size: 11px;
+        letter-spacing: 0.3px;
+    }
+
+    .container {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 40px;
+        box-sizing: border-box;
+    }
+
+    main {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .about-text, .promotional-content {
+        font-size: 14px;
+        padding: 22px;
+    }
+
+    .stream-schedule {
+        font-size: 13px;
+    }
+
+    .character-left,
+    .character1,
+    .character-right,
+    .character3 {
+        display: none !important;
+    }
+
+    .promo-materials {
+        gap: 35px;
+    }
+
+    .back-to-top {
+        right: 50px;
+        bottom: 30px;
+        transform: scale(0.8);
+    }
+
+    .back-to-top.show {
+        transform: scale(1);
+    }
+
+    .back-to-top:hover {
+        transform: scale(1.1);
+    }
+}
+
 
 
