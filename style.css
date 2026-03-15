@@ -183,16 +183,20 @@ nav ul li a {
     touch-action: manipulation;
 }
 
-nav ul li a.active,
-nav ul li a:hover {
+nav ul li a.active {
     background: #B3E5FF;
-    color: #333;
 }
 
 nav ul li:nth-child(1) a { background: #9B6B9B; }
-nav ul li:nth-child(2) a { background: #B3E5FF; color: #333; }
+nav ul li:nth-child(2) a { background: #B3E5FF; }
 nav ul li:nth-child(3) a { background: #9B6B9B; }
 nav ul li:nth-child(4) a { background: #9B6B9B; }
+
+/* When cursor enters nav, reset PROMOTIONAL to purple */
+nav ul:hover li:nth-child(2) a { background: #9B6B9B; color: inherit; }
+
+/* Blue follows whichever item is hovered (after the reset, so it wins) */
+nav ul:hover li a:hover { background: #B3E5FF; color: #333; }
 
 /* ============================================
    MAIN CONTENT LAYOUT
