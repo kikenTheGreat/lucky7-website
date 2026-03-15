@@ -1547,3 +1547,56 @@ main {
         background: white;
     }
 }
+
+
+
+/*hover nav*/
+/* Dropdown wrapper */
+li.dropdown {
+  position: relative;
+}
+
+/* Hide by default */
+li.dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  list-style: none;
+  min-width: 180px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  z-index: 999;
+  padding: 6px 0;
+}
+
+/* Show on hover */
+li.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Dropdown links */
+li.dropdown .dropdown-menu li a {
+  display: block;
+  padding: 12px 20px;
+  color: #333;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+li.dropdown .dropdown-menu li a:hover {
+  background: #f5f5f5;
+}
+
+/* Arrow */
+.arrow {
+  display: inline-block;
+  font-size: 11px;
+  margin-left: 4px;
+  transition: transform 0.3s ease;
+}
+
+li.dropdown:hover .arrow {
+  transform: rotate(180deg);
+}
