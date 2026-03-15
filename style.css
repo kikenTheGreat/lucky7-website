@@ -1551,49 +1551,82 @@ main {
 
 
 /*hover nav*/
-/* Dropdown wrapper */
 li.dropdown {
   position: relative;
 }
 
-/* Hide by default */
+/* Dropdown Menu Container */
 li.dropdown .dropdown-menu {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
   position: absolute;
-  top: 100%;
+  top: calc(100% + 6px);
   left: 0;
   background: #fff;
   list-style: none;
-  min-width: 180px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
+  min-width: 160px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 8px 0;
   z-index: 999;
-  padding: 6px 0;
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 /* Show on hover */
 li.dropdown:hover .dropdown-menu {
-  display: block;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Dropdown links */
+/* Dropdown Items */
 li.dropdown .dropdown-menu li a {
   display: block;
   padding: 12px 20px;
-  color: #333;
+  color: #444;
   text-decoration: none;
-  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: background 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+  border-radius: 6px;
+  margin: 2px 6px;
 }
 
+/* Hover on each item */
 li.dropdown .dropdown-menu li a:hover {
-  background: #f5f5f5;
+  background: #f0e6ff;
+  color: #7b4fa6;
+  padding-left: 26px;
 }
 
-/* Arrow */
+/* Divider between items (optional) */
+li.dropdown .dropdown-menu li + li {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Small triangle pointer on top of dropdown */
+li.dropdown .dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 20px;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-left: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  transform: rotate(45deg);
+  border-radius: 2px;
+}
+
+/* Arrow rotation */
 .arrow {
   display: inline-block;
   font-size: 11px;
-  margin-left: 4px;
+  margin-left: 5px;
   transition: transform 0.3s ease;
 }
 
