@@ -40,7 +40,7 @@
             </button>
             <nav id="main-nav">
                 <ul id="nav-menu">
-                    <li><a href="#about" class="active">ABOUT</a></li>
+                    <li><a href="#about">ABOUT</a></li>
                     <li><a href="#promotional">PROMOTIONAL</a></li>
                     <li><a href="#video">VIDEO</a></li>
 
@@ -816,13 +816,75 @@
             mainNav.classList.toggle('open');
         });
 
-        // Close menu when a nav link is clicked
+        // Close menu when a non-dropdown nav link is clicked
         mainNav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
+            link.addEventListener('click', (e) => {
+                // Don't close if it's the ANALYSIS dropdown toggle
+                if (link.closest('.dropdown') && link.parentElement.classList.contains('dropdown')) {
+                    return;
+                }
                 hamburger.classList.remove('active');
                 mainNav.classList.remove('open');
             });
         });
+
+        // ANALYSIS dropdown toggle on tap (for touch screens)
+        const dropdown = document.querySelector('li.dropdown');
+        const dropdownToggle = dropdown.querySelector(':scope > a');
+
+        dropdownToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            dropdown.classList.toggle('open');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('open');
+            }
+        });
+
+        // Close dropdown when a dropdown item is clicked
+        dropdown.querySelectorAll('.dropdown-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                dropdown.classList.remove('open');
+                hamburger.classList.remove('active');
+                mainNav.classList.remove('open');
+            });
+        });
+
+        // Active section highlighting based on scroll position
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('#nav-menu > li > a');
+
+        function updateActiveNav() {
+            const scrollPos = window.scrollY + 120;
+            let currentId = '';
+
+            sections.forEach(section => {
+                if (section.offsetTop <= scrollPos) {
+                    currentId = section.id;
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href');
+                if (href && href.substring(1) === currentId) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Also highlight ANALYSIS parent if an analysis section is active
+            if (currentId === 'analysis' || currentId === 'analysis2') {
+                dropdownToggle.classList.add('active');
+            } else {
+                dropdownToggle.classList.remove('active');
+            }
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+        updateActiveNav();
     </script>
 
 </body>

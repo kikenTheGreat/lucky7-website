@@ -219,20 +219,29 @@ nav ul li a {
     transform: rotate(-45deg) translate(5px, -6px);
 }
 
-nav ul li a.active {
-    background: #B3E5FF;
-}
-
+/* All nav items default purple */
 nav ul li:nth-child(1) a { background: #9B6B9B; }
-nav ul li:nth-child(2) a { background: #B3E5FF; }
+nav ul li:nth-child(2) a { background: #9B6B9B; }
 nav ul li:nth-child(3) a { background: #9B6B9B; }
 nav ul li:nth-child(4) a { background: #9B6B9B; }
 
-/* When cursor enters nav, reset PROMOTIONAL to purple */
-nav ul:hover li:nth-child(2) a { background: #9B6B9B; color: inherit; }
+/* Active item (from scroll tracking) is blue */
+nav ul li a.active {
+    background: #B3E5FF;
+    color: #333;
+}
 
-/* Blue follows whichever item is hovered (after the reset, so it wins) */
-nav ul:hover li a:hover { background: #B3E5FF;}
+/* When cursor enters nav, reset ALL items to purple (including active) */
+nav ul:hover li a {
+    background: #9B6B9B;
+    color: white;
+}
+
+/* Blue follows whichever item the cursor is on */
+nav ul:hover li a:hover {
+    background: #B3E5FF;
+    color: #333;
+}
 
 /* ============================================
    MAIN CONTENT LAYOUT
@@ -1775,27 +1784,53 @@ li.dropdown:hover .arrow {
         white-space: nowrap;
     }
 
-    /* Keep PROMOTIONAL blue — don't reset on touch hover */
-    nav ul:hover li:nth-child(2) a {
-        background: #B3E5FF;
-        color: #333;
-    }
-
-    /* Blue on tap */
+    /* Blue on tap for touch devices */
     nav ul li a:active {
         background: #B3E5FF;
         color: #333;
     }
 
-    /* Dropdown anchored right so it doesn't go off-screen */
+    /* Dropdown inline on mobile — push content down, not float */
     li.dropdown .dropdown-menu {
-        left: auto;
-        right: 0;
+        position: static;
+        box-shadow: none;
+        border-radius: 0;
+        border: none;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 0;
+        visibility: visible;
+        opacity: 1;
+        transform: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        min-width: 0;
+        width: 100%;
+    }
+
+    li.dropdown:hover .dropdown-menu,
+    li.dropdown.open .dropdown-menu {
+        max-height: 200px;
     }
 
     li.dropdown .dropdown-menu::before {
-        left: auto;
-        right: 20px;
+        display: none;
+    }
+
+    li.dropdown .dropdown-menu li a {
+        padding: 10px 24px;
+        font-size: 11px;
+        color: white;
+        margin: 0;
+        border-radius: 0;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Arrow rotates when dropdown is open */
+    li.dropdown.open .arrow {
+        transform: rotate(180deg);
     }
 }
 
@@ -1811,6 +1846,12 @@ li.dropdown:hover .arrow {
         padding: 12px 16px;
         font-size: 12px;
         justify-content: flex-start;
+    }
+
+    li.dropdown .dropdown-menu li a {
+        padding: 12px 32px;
+        font-size: 12px;
+        min-height: 44px;
     }
 }
 
@@ -1837,14 +1878,37 @@ li.dropdown:hover .arrow {
         font-size: 9px;
         justify-content: center;
     }
+
+    /* In landscape, dropdown floats instead of inline push */
+    li.dropdown .dropdown-menu {
+        position: absolute;
+        right: 0;
+        left: auto;
+        width: auto;
+        min-width: 140px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    li.dropdown .dropdown-menu li a {
+        color: #444;
+        padding: 10px 16px;
+        font-size: 10px;
+    }
 }
 
 /* ============================================
    BLUE HOVER — all screen sizes
    ============================================ */
 
-/* Tablet hover */
+/* Tablet hover — same reset-then-highlight pattern */
 @media (min-width: 768px) and (max-width: 1023px) {
+    nav ul:hover li a {
+        background: #9B6B9B;
+        color: white;
+    }
+
     nav ul:hover li a:hover {
         background: #B3E5FF;
         color: #333;
