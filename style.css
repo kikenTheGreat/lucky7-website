@@ -45,8 +45,9 @@ header {
     font-family: 'Fredoka', 'Comic Sans MS', cursive, sans-serif;
     background: linear-gradient(180deg, #E8B4F0 0%, #C9A3E8 50%, #B89FE8 100%);
     padding: clamp(10px, 2vw, 15px) 0;
-    position: relative;
-    z-index: 10;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     width: 100%;
 }
 
@@ -108,11 +109,8 @@ header .container {
 
 /* === LOGO SECTION === */
 .logo-section {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     text-align: center;
-    top: -10px;
+    flex: 0 0 auto;
 }
 
 .logo img {
@@ -156,6 +154,8 @@ header .container {
 /* === NAVIGATION === */
 nav {
     margin-left: auto;
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
 nav ul {
@@ -164,10 +164,11 @@ nav ul {
     gap: 0;
     margin: 0;
     flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
 nav ul li a {
-    padding: clamp(6px, 1vw, 8px) clamp(10px, 2vw, 18px);
+    padding: clamp(6px, 1vw, 8px) clamp(8px, 1.5vw, 18px);
     text-decoration: none;
     color: white;
     font-weight: 600;
@@ -181,6 +182,41 @@ nav ul li a {
     transition: all 0.3s ease;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
+    white-space: nowrap;
+}
+
+/* === HAMBURGER MENU (mobile only) === */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1001;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: #7A33A0;
+    margin: 5px 0;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
 }
 
 nav ul li a.active {
@@ -196,7 +232,7 @@ nav ul li:nth-child(4) a { background: #9B6B9B; }
 nav ul:hover li:nth-child(2) a { background: #9B6B9B; color: inherit; }
 
 /* Blue follows whichever item is hovered (after the reset, so it wins) */
-nav ul:hover li a:hover { background: #B3E5FF; color: #333; }
+nav ul:hover li a:hover { background: #B3E5FF;}
 
 /* ============================================
    MAIN CONTENT LAYOUT
@@ -869,40 +905,20 @@ main {
     }
 
     header .container {
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
+        gap: 6px;
     }
 
     .social-icons {
-        order: 1;
         margin-top: 5px;
     }
 
     .logo-section {
-        order: 2;
-        position: relative;
-        left: 0;
-        transform: none;
-        margin: 8px 0;
-    }
-
-    nav {
-        order: 3;
-        width: 100%;
-        margin: 5px 0 0;
-    }
-
-    nav ul {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 2px;
+        margin: 6px 0;
     }
 
     nav ul li a {
-        padding: 8px 6px;
-        font-size: 9px;
-        min-height: 44px;
+        padding: 10px 12px;
+        font-size: 11px;
     }
 
     .about-section,
@@ -935,7 +951,8 @@ main {
     header .container {
         flex-direction: column;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
+        position: relative;
     }
 
     .social-icons {
@@ -948,24 +965,43 @@ main {
         position: relative;
         left: 0;
         transform: none;
-        margin: 10px 0;
+        margin: 8px 0;
+    }
+
+    /* Hamburger visible on small phones */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        order: 3;
+        position: absolute;
+        top: 10px;
+        right: 10px;
     }
 
     nav {
-        order: 3;
+        order: 4;
         width: 100%;
-        margin: 10px 0 0;
+        margin: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    nav.open {
+        max-height: 300px;
     }
 
     nav ul {
-        justify-content: center;
-        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
     }
 
     nav ul li a {
-        padding: 8px 10px;
-        font-size: 10px;
+        padding: 12px 16px;
+        font-size: 12px;
         min-height: 44px;
+        justify-content: flex-start;
     }
 
     .about-section,
@@ -1032,6 +1068,39 @@ main {
     .background-characters::after {
         display: none;
     }
+
+    /* Dropdown goes full width on mobile */
+    li.dropdown .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        border-radius: 0;
+        border: none;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 0;
+        visibility: visible;
+        opacity: 1;
+        transform: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    li.dropdown:hover .dropdown-menu,
+    li.dropdown.open .dropdown-menu {
+        max-height: 200px;
+    }
+
+    li.dropdown .dropdown-menu::before {
+        display: none;
+    }
+
+    li.dropdown .dropdown-menu li a {
+        padding: 10px 24px;
+        font-size: 11px;
+        color: white;
+        margin: 0;
+        border-radius: 0;
+    }
 }
 
 /* ============================================
@@ -1072,6 +1141,7 @@ main {
         padding: 8px 12px;
         font-size: 12px;
         min-height: 44px;
+        white-space: nowrap;
     }
 
     .about-section,
@@ -1119,14 +1189,17 @@ main {
    ============================================ */
 @media (min-width: 769px) and (max-width: 1024px) {
     header .container {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: nowrap;
         align-items: center;
-        gap: 12px;
+        gap: 10px;
+        justify-content: space-between;
     }
 
     .social-icons {
         order: 1;
-        margin-top: 10px;
+        margin-top: 0;
+        flex: 0 0 auto;
     }
 
     .logo-section {
@@ -1134,25 +1207,27 @@ main {
         position: relative;
         left: 0;
         transform: none;
-        margin: 10px 0;
+        margin: 0;
+        flex: 0 0 auto;
     }
 
     nav {
         order: 3;
-        width: 100%;
-        margin: 10px 0 0;
+        flex: 1 1 auto;
+        min-width: 0;
     }
 
     nav ul {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 3px;
+        justify-content: flex-end;
+        flex-wrap: nowrap;
+        gap: 2px;
     }
 
     nav ul li a {
-        padding: 8px 14px;
-        font-size: 11px;
+        padding: 8px 8px;
+        font-size: 10px;
         min-height: 44px;
+        white-space: nowrap;
     }
 
     .container {
@@ -1208,26 +1283,32 @@ main {
     .social-icons {
         gap: 5px;
         margin-top: 0;
-        flex-shrink: 0;
+        flex: 0 0 auto;
     }
 
     .logo-section {
-        flex-shrink: 0;
+        position: relative;
+        left: 0;
+        transform: none;
+        flex: 0 0 auto;
     }
 
     nav {
-        margin-left: auto;
-        flex-shrink: 0;
+        flex: 1 1 auto;
+        min-width: 0;
     }
 
     nav ul {
         gap: 2px;
+        justify-content: flex-end;
+        flex-wrap: nowrap;
     }
 
     nav ul li a {
-        padding: 8px 12px;
+        padding: 8px 10px;
         font-size: 11px;
         min-height: 44px;
+        white-space: nowrap;
     }
 
     .container {
@@ -1262,16 +1343,24 @@ main {
 
     .social-icons {
         margin-top: 0;
-        flex-shrink: 0;
+        flex: 0 0 auto;
     }
 
     .logo-section {
-        flex-shrink: 0;
+        position: relative;
+        left: 0;
+        transform: none;
+        flex: 0 0 auto;
     }
 
     nav {
-        margin-left: auto;
-        flex-shrink: 0;
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    nav ul {
+        justify-content: flex-end;
+        flex-wrap: nowrap;
     }
 
     /* Characters visible only on large screens where there's room */
@@ -1348,13 +1437,13 @@ main {
     }
 
     header {
-        padding: 6px 0;
+        padding: 4px 0;
     }
 
     header .container {
         flex-direction: row;
         flex-wrap: nowrap;
-        gap: 8px;
+        gap: 6px;
         align-items: center;
         justify-content: space-between;
     }
@@ -1362,16 +1451,16 @@ main {
     .social-icons {
         order: 1;
         margin-top: 0;
-        gap: 4px;
-        flex-shrink: 0;
+        gap: 3px;
+        flex: 0 0 auto;
     }
 
     .social-icons .social {
-        min-width: 36px;
-        min-height: 36px;
-        width: 36px;
-        height: 36px;
-        font-size: 12px;
+        min-width: 32px;
+        min-height: 32px;
+        width: 32px;
+        height: 32px;
+        font-size: 11px;
     }
 
     .logo-section {
@@ -1380,31 +1469,46 @@ main {
         left: 0;
         transform: none;
         margin: 0;
-        flex-shrink: 0;
+        flex: 0 0 auto;
+    }
+
+    .logo img {
+        max-height: 40px;
+        width: auto;
     }
 
     .lucky-text {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .lucky-number {
-        font-size: 30px;
+        font-size: 26px;
     }
 
     nav {
         order: 3;
-        margin: 0 0 0 auto;
-        flex-shrink: 0;
+        margin: 0;
+        flex: 1 1 auto;
+        min-width: 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     nav ul {
         gap: 1px;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
     }
 
     nav ul li a {
-        padding: 6px 8px;
+        padding: 4px 6px;
         font-size: 9px;
-        min-height: 36px;
+        min-height: 32px;
+        white-space: nowrap;
+    }
+
+    .hamburger {
+        display: none !important;
     }
 
     main {
@@ -1485,7 +1589,7 @@ main {
     .social-icons {
         order: 1;
         margin-top: 0;
-        flex-shrink: 0;
+        flex: 0 0 auto;
     }
 
     .logo-section {
@@ -1494,19 +1598,26 @@ main {
         left: 0;
         transform: none;
         margin: 0;
-        flex-shrink: 0;
+        flex: 0 0 auto;
     }
 
     nav {
         order: 3;
-        margin: 0 0 0 auto;
-        flex-shrink: 0;
+        margin: 0;
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    nav ul {
+        flex-wrap: nowrap;
+        justify-content: flex-end;
     }
 
     nav ul li a {
-        padding: 8px 12px;
+        padding: 8px 10px;
         font-size: 10px;
         min-height: 44px;
+        white-space: nowrap;
     }
 
     .video-section .video-container {
@@ -1567,7 +1678,8 @@ li.dropdown .dropdown-menu {
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
   position: absolute;
   top: calc(100% + 6px);
-  left: 0;
+  right: 0;
+  left: auto;
   background: #fff;
   list-style: none;
   min-width: 160px;
@@ -1616,7 +1728,8 @@ li.dropdown .dropdown-menu::before {
   content: '';
   position: absolute;
   top: -6px;
-  left: 20px;
+  right: 20px;
+  left: auto;
   width: 12px;
   height: 12px;
   background: #fff;
@@ -1636,4 +1749,112 @@ li.dropdown .dropdown-menu::before {
 
 li.dropdown:hover .arrow {
   transform: rotate(180deg);
+}
+
+/* ============================================
+   MOBILE NAV FIX — below 768px
+   ============================================ */
+@media (max-width: 767px) {
+    nav {
+        width: 100%;
+        position: relative;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0;
+    }
+
+    nav ul li a {
+        padding: 8px 9px;
+        font-size: 10px;
+        min-height: 44px;
+        white-space: nowrap;
+    }
+
+    /* Keep PROMOTIONAL blue — don't reset on touch hover */
+    nav ul:hover li:nth-child(2) a {
+        background: #B3E5FF;
+        color: #333;
+    }
+
+    /* Blue on tap */
+    nav ul li a:active {
+        background: #B3E5FF;
+        color: #333;
+    }
+
+    /* Dropdown anchored right so it doesn't go off-screen */
+    li.dropdown .dropdown-menu {
+        left: auto;
+        right: 0;
+    }
+
+    li.dropdown .dropdown-menu::before {
+        left: auto;
+        right: 20px;
+    }
+}
+
+/* Override for <= 480px: hamburger menu overrides the 767px rules */
+@media (max-width: 480px) {
+    nav ul {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+
+    nav ul li a {
+        padding: 12px 16px;
+        font-size: 12px;
+        justify-content: flex-start;
+    }
+}
+
+/* Mobile landscape — keep nav compact, override hamburger menu */
+@media (max-width: 767px) and (orientation: landscape) {
+    .hamburger {
+        display: none !important;
+    }
+
+    nav {
+        max-height: none !important;
+        overflow: visible;
+    }
+
+    nav ul {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+
+    nav ul li a {
+        padding: 6px 8px;
+        min-height: 36px;
+        font-size: 9px;
+        justify-content: center;
+    }
+}
+
+/* ============================================
+   BLUE HOVER — all screen sizes
+   ============================================ */
+
+/* Tablet hover */
+@media (min-width: 768px) and (max-width: 1023px) {
+    nav ul:hover li a:hover {
+        background: #B3E5FF;
+        color: #333;
+    }
+}
+
+/* Touch devices: :active mimics hover */
+@media (hover: none) {
+    nav ul li a:active {
+        background: #B3E5FF;
+        color: #333;
+    }
 }

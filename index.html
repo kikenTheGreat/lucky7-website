@@ -33,8 +33,13 @@
                 </div>
 
             </div>
-            <nav>
-                <ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="main-nav">
+                <ul id="nav-menu">
                     <li><a href="#about" class="active">ABOUT</a></li>
                     <li><a href="#promotional">PROMOTIONAL</a></li>
                     <li><a href="#video">VIDEO</a></li>
@@ -784,7 +789,6 @@
 
     <script>
 
-
         // Back to Top Button
         const backToTopBtn = document.getElementById('backToTopBtn');
 
@@ -800,6 +804,23 @@
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
+            });
+        });
+
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mainNav = document.getElementById('main-nav');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mainNav.classList.toggle('open');
+        });
+
+        // Close menu when a nav link is clicked
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mainNav.classList.remove('open');
             });
         });
     </script>
